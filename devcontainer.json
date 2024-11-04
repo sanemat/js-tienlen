@@ -1,0 +1,29 @@
+{
+    "name": "Simple Dev Environment",
+    "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+    "postCreateCommand": "npm install",
+    "forwardPorts": [
+        3000,
+        9876
+    ],
+    "portsAttributes": {
+        "9876": {
+            "label": "Karma Test Server",
+            "onAutoForward": "notify"
+        },
+        "3000": {
+            "label": "Local Server",
+            "onAutoForward": "openPreview"
+        }
+    }
+}
