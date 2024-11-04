@@ -1,14 +1,13 @@
 {
     "private": true,
     "devDependencies": {
-        "karma": "^6.4.4",
-        "karma-chrome-launcher": "^3.2.0",
+        "@web/test-runner": "^0.19.0",
         "serve": "^14.2.4"
     },
     "scripts": {
         "test": "npm run test:local",
-        "test:local": "karma start karma.conf.js",
-        "test:ci": "karma start karma.conf.js --browserNoActivityTimeout 5000 --single-run --auto-watch=false",
+        "test:local": "web-test-runner \"test/**/*.test.js\"",
+        "test:ci": "web-test-runner \"test/**/*.test.js\"",
         "open": "serve public/"
     }
 }

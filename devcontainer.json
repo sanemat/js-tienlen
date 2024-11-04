@@ -14,11 +14,11 @@
     "postCreateCommand": "npm install",
     "forwardPorts": [
         3000,
-        9876
+        8000
     ],
     "portsAttributes": {
-        "9876": {
-            "label": "Karma Test Server",
+        "8000": {
+            "label": "Web Test Runner Server",
             "onAutoForward": "notify"
         },
         "3000": {
