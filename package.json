@@ -6,7 +6,9 @@
         "serve": "^14.2.4"
     },
     "scripts": {
-        "test": "karma start karma.conf.js",
+        "test": "npm run test:local",
+        "test:local": "karma start karma.conf.js",
+        "test:ci": "karma start karma.conf.js --browserNoActivityTimeout 5000 --single-run --auto-watch=false",
         "open": "serve public/"
     }
 }
