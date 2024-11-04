@@ -11,7 +11,7 @@
             ]
         }
     },
-    "postCreateCommand": "npm install",
+    "postCreateCommand": "npm install && curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb && sudo apt-get install -y ./chrome.deb && rm chrome.deb",
     "forwardPorts": [
         3000,
         8000
@@ -25,5 +25,8 @@
             "label": "Local Server",
             "onAutoForward": "openPreview"
         }
-    }
+    },
+    "containerEnv": {
+        "CHROME_PATH": "/usr/bin/google-chrome"
+      }
 }

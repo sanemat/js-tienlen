@@ -18,5 +18,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ensure Chrome is installed
+        run: |
+          if ! command -v google-chrome-stable &> /dev/null; then
+            echo "Google Chrome not found, installing..."
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
+          fi
+
+      - name: Set CHROME_PATH
+        run: echo "CHROME_PATH=/usr/bin/google-chrome" >> $GITHUB_ENV
+        
       - name: Run tests
         run: npm run test:ci
