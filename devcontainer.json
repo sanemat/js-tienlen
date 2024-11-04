@@ -1,6 +1,9 @@
 {
     "name": "Simple Dev Environment",
     "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+    "features": {
+        "ghcr.io/devcontainers/features/google-chrome:1": {}
+    },
     "customizations": {
         "vscode": {
             "settings": {
@@ -11,7 +14,7 @@
             ]
         }
     },
-    "postCreateCommand": "npm install && curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o chrome.deb && sudo apt-get install -y ./chrome.deb && rm chrome.deb",
+    "postCreateCommand": "npm install",
     "forwardPorts": [
         3000,
         8000
@@ -28,5 +31,5 @@
     },
     "containerEnv": {
         "CHROME_PATH": "/usr/bin/google-chrome"
-      }
+    }
 }
