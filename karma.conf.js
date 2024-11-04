@@ -4,7 +4,8 @@ module.exports = function (config) {
         frameworks: [],
         files: [
             'public/js/*.js',
-            'test/*.test.js'
+            'test/*.test.js',
+            'test/adapter.js'
         ],
         exclude: [],
         browsers: ['ChromeHeadless'],
