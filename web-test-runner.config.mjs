@@ -1,14 +1,14 @@
-import { chromeLauncher } from '@web/test-runner-chrome';
+import { playwrightLauncher } from '@web/test-runner-playwright';
 
 export default {
-    files: 'test/**/*.test.js', // Specifies the test files
-    nodeResolve: true,          // Allows resolving bare module imports
-    browsers: [
-        chromeLauncher(),         // Use Chrome launcher
-    ],
-    testFramework: {
-        config: {
-            timeout: 5000,          // Sets test timeout to 5 seconds
-        },
+  files: 'test/**/*.test.js',
+  nodeResolve: true,
+  browsers: [
+    playwrightLauncher({ product: 'chromium', headless: true }) // Chromiumを使い、ヘッドレスモードで実行
+  ],
+  testFramework: {
+    config: {
+      timeout: 5000,
     },
+  },
 };

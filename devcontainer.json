@@ -1,9 +1,6 @@
 {
     "name": "Simple Dev Environment",
     "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
-    "features": {
-        "ghcr.io/devcontainers/features/google-chrome:1": {}
-    },
     "customizations": {
         "vscode": {
             "settings": {
@@ -30,6 +27,6 @@
         }
     },
     "containerEnv": {
-        "CHROME_PATH": "/usr/bin/google-chrome"
+        "PLAYWRIGHT_BROWSERS_PATH": "/home/node/.cache/ms-playwright"
     }
 }
