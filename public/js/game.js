@@ -9,13 +9,17 @@
  * @returns {Promise<string>} A promise that resolves to the hexadecimal string representation of the hash.
  */
 export async function generateHash(data) {
-    // Create a new TextEncoder instance
+    // Create a new TextEncoder instance to encode the input string as UTF-8
     const encoder = new TextEncoder();
-    // Encode the input data to Uint8Array
+    // Encode the input data to Uint8Array (UTF-8 representation)
     const dataUint8 = encoder.encode(data);
-    // Compute the SHA-256 hash
+    // Compute the SHA-256 hash of the encoded data
     const hashBuffer = await crypto.subtle.digest('SHA-256', dataUint8);
-    return Array.from(new Uint8Array(hashBuffer)) // Convert the hash buffer to an array of bytes
-        .map(b => b.toString(16).padStart(2, '0')) // Convert each byte to a hexadecimal string and pad with zero if necessary
-        .join(''); // Join all hexadecimal strings into one
+    // Convert the hash buffer to a Uint8Array to work with individual bytes
+    const hashArray = new Uint8Array(hashBuffer);
+    // Convert each byte to a hexadecimal string and pad with leading zero if needed
+    const hashHex = Array.from(hashArray)
+        .map(byte => byte.toString(16).padStart(2, '0')) // Ensure each byte is represented by two hexadecimal digits
+        .join(''); // Join all hexadecimal byte strings into a single hash string
+    return hashHex;
 }

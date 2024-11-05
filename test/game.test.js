@@ -22,8 +22,7 @@ async function testGenerateHash() {
 }
 
 // Run the tests
-testGenerateHash().catch(error => console.error("Test failed:", error.message));
-
+await testGenerateHash();
 
 /**
  * A custom assert function that throws an error on failure, enabling test runners to detect failures.
