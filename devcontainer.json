@@ -4,7 +4,8 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.defaultProfile.linux": "bash"
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "files.insertFinalNewline": true
             },
             "extensions": [
                 "dbaeumer.vscode-eslint"
@@ -25,8 +26,5 @@
             "label": "Local Server",
             "onAutoForward": "openPreview"
         }
-    },
-    "containerEnv": {
-        "PLAYWRIGHT_BROWSERS_PATH": "/home/node/.cache/ms-playwright"
     }
 }
